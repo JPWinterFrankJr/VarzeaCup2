@@ -10,7 +10,7 @@ class Time extends Model
     use HasFactory;
 
     // Atributos que podem ser atribuídos em massa
-    protected $fillable = ['name', 'city'];
+    protected $fillable = ['id','name'];
 
     // Relação: Um time pode ter várias partidas
     public function matches()
@@ -18,9 +18,4 @@ class Time extends Model
         return $this->hasMany(Time::class, 'home_team_id');
     }
 
-    // Relação com o usuário (um time pertence a um usuário)
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

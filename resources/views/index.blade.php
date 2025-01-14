@@ -1,5 +1,6 @@
-@extends('navbar')
 
+@extends('navbar')
+    
 @push('css')
 <link rel="stylesheet" href="/css/index.css">
 @endpush
@@ -9,11 +10,15 @@
         <div class="side-panel">
             <section class="login">
                 <h2>Login</h2>
-                <form>
-                    <input type="text" placeholder="Usuário" required>
+                <form action="{{ route('logar')}}" method="post">
+                    @csrf
+                    <input type="text" placeholder="E-mail" required>
                     <input type="password" placeholder="Senha" required>
                     <button type="submit">Entrar</button>
-                    <button type="button" class="secondary-button">Cadastrar</button>
+                </form>
+                
+                <form action="{{ route('view_user')}}" method="get">
+                    <button  type="submit" class="secondary-button">Cadastrar</button>
                 </form>
             </section>
 

@@ -10,12 +10,14 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo">VarzeaCup</div>
+            <div class="logo"><a href="/">VarzeaCup</a></div>
             <nav>
                 <ul>
                     @auth
-                        <li><a href="/times/create">Cadastrar Times</a></li>
-                        <li><a href="/partidas/create">Cadastrar Partidas</a></li>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/">Cadastros</a></li>
+                        <li><a href="/">Partidas</a></li>
+
                         <li>
                             <form action="/logout" method="POST" class="logout-form">
                                 @csrf

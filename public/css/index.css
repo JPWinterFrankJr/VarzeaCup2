@@ -8,12 +8,6 @@
 }
 
 
-/* Remove o overflow de rolagem na tela */
-body {
-    overflow: hidden;
-}
-
-
 main {
     display: flex;
     flex: 1;
@@ -44,7 +38,6 @@ main {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     padding: 1.5rem;
 }
-
 h2 {
     color: #00aaff;
 }
@@ -109,4 +102,15 @@ form button:hover {
 .about p {
     line-height: 1;
     color: #ccc;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+    }
+
+    fieldset {
+        flex: 1 1 100%;
+    }
 }
