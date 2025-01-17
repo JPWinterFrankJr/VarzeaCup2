@@ -2,13 +2,15 @@
 
 @push('css')
 <link rel="stylesheet" href="/css/cadastros.css">
+<link rel="stylesheet" href="/css/partidas.css">
+
 @endpush
 
 @section('content')
 
 <main>
     <div class="form-container">
-        <h2>Partidas e Times</h2>
+        <h2>Partidas e Edições</h2>
 
         <!-- Seleção de Campeonato -->
         <fieldset>
@@ -203,60 +205,3 @@
     </div>
 </main>
 @endsection
-
-@push('css')
-<style>
-    .content-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .matches-section {
-        width: 100%;
-    }
-
-    /* Ajustando a seção de Times e Campeonatos para ficarem lado a lado */
-    .times-camp-section {
-        display: flex;
-        justify-content: space-between;
-        gap: 2rem;
-    }
-
-    .times-table,
-    .teams-table {
-        flex: 1;
-        box-sizing: border-box;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th,
-    td {
-        padding: 0.8rem;
-        text-align: center;
-        border: 1px solid #ccc;
-    }
-
-    button {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        background: linear-gradient(135deg, #00d4ff, #0066ff);
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 16px rgba(0, 212, 255, 0.4);
-    }
-
-</style>
-@endpush

@@ -33,33 +33,46 @@
         </section>
     </div>
     <section class="classification">
-        <h2>Classificação</h2>
-        <table>
-            <thead>
+        @if ($championshipId)
+        <h2>Classificação do Campeonato: {{ $championship->name }}</h2>
+    @else
+        <h2>Classificação Geral</h2>
+    @endif    <table>
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Time</th>
+                <th>Pontos</th>
+                <th>Partidas Jogadas</th>
+                <th>Vitórias</th>
+                <th>Empates</th>
+                <th>Derrotas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($classification as $index => $team)
                 <tr>
-                    <th>Posição</th>
-                    <th>Equipe</th>
-                    <th>Pontos</th>
+                    <td>  {{$posicao++}}  </td>
+                    <td>{{ $team->team_name }}</td>
+                    <td>{{ $team->points }}</td>
+                    <td>{{ $team->games_played }}</td>
+                    <td>{{ $team->wins }}</td>
+                    <td>{{ $team->draws }}</td>
+                    <td>{{ $team->losses }}</td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Time A</td>
-                    <td>25</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Time B</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Time C</td>
-                    <td>20</td>
-                </tr>
-            </tbody>
-        </table>
+            @endforeach
+        </tbody>
+    </table>
+    <form action="{{ route('index') }}" method="get">
+        @csrf
+        <select name="championshipId" onchange="this.form.submit()">
+            <option value="" selected>Selecionar Campeonato</option>
+            @foreach ($championships as $champ)
+                <option value="{{ $champ->id }}" @if($champ->id == $championshipId) selected @endif>{{ $champ->name }}</option>
+            @endforeach
+        </select>
+    </form>
+    
     </section>
 
 </main>

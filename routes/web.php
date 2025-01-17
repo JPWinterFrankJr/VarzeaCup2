@@ -11,7 +11,8 @@ use App\Http\Controllers\DestroyController;
 
 use App\Http\Controllers\Controller;
 
-Route::get('/', [ShowController::class, 'view_index']) ->name('index');
+Route::get('/', [ShowController::class, 'view_index'])->name('index');
+
 Route::post('/logar', [AuthController::class, 'logar']) ->name('logar');
 Route::get('/view_user', [ShowController::class, 'view_create_user'])->name('view_user');
 Route::post('/view_user', [CreateController::class, 'create_user'])->name('create_user');

@@ -29,4 +29,5 @@ class ConfController extends Controller
         $championships = Championship::all(); // Certifique-se de passar os campeonatos disponíveis para o filtro
         return view('partidas', compact('matches', 'championships', 'teams','users'));
     }
+
 }
