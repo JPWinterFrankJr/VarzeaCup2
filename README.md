@@ -3,7 +3,7 @@ Sistema de Gerenciamento de Campeonatos Amadores e de Várzea
 
 ## 📋 Descrição  
 O **VarzeaCup** é uma plataforma dedicada à gestão de campeonatos amadores e de várzea. Com ele, você pode:  
-- Criar usuários e gerenciar autenticações.  
+- Criar usuários e futuramente gerenciar autenticações.  
 - Cadastrar times, campeonatos e partidas (restrito a usuários autenticados).  
 - Inserir e atualizar os placares das partidas.  
 - Acompanhar a classificação dos campeonatos, com posição, pontos, partidas jogadas, vitórias, empates e derrotas.  
