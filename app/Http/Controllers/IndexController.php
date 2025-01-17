@@ -7,9 +7,12 @@ use App\Models\User;
 use App\Models\Team;
 use App\Models\Championship;
 use App\Models\Matche;
+use App\Http\Requests\AuthUserRequest;
 
-class ShowController extends Controller
+class IndexController extends Controller
 {
+
+    
     public function view_index(Request $request)
     {
         $posicao = 1;
@@ -36,32 +39,20 @@ class ShowController extends Controller
         return view('index', compact('posicao', 'championship', 'matches', 'classification', 'championships', 'championshipId'));
     }
     
-    public function view_create()
+    public function logar(AuthUserRequest $request)
     {    
-        $championships  = Championship::all();
-        $teams = Team::all();
-        return view('cadastros')
-                    ->with('teams', $teams)
-                    ->with('championships', $championships);
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Redireciona para o dashboard ou outra rota após o login
+            return redirect()->intended('/')->with('msg', 'Usuário logado com sucesso');
+        } else {
+            return back()->withInput()->withErrors(['email' => 'E-mail ou senha incorreta']);
+        }
     }
-    public function view_create_user()
-    {
-        return view('create_user');
-    }
-    public function view_matche()
-    {
-        $users = User::all();
-        $teams = Team::all();
-        $championships  = Championship::all();
-        $matches = Matche::all();
 
-    
-        return view('partidas', compact('championships'))
-                ->with('matches', $matches)
-                ->with('championships', $championships)
-                ->with('teams',$teams)
-                ->with('users',$users);
-                
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/')->with('msg-logout','Usuario desconectado');
     }
-   
+ 
 }

@@ -14,7 +14,7 @@
 
         <!-- Seleção de Campeonato -->
         <fieldset>
-            <form action="{{ route('partidas_filter') }}" method="POST">
+            <form action="{{ route('matche_filter') }}" method="get">
                 @csrf
                 <select name="selected_championship" id="selected_championship" required>
                     <option value="" disabled selected>Selecione o campeonato</option>

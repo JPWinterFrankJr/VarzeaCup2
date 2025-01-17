@@ -21,12 +21,12 @@
                         </form>
                     </li>
                     <li>
-                        <form action="/cadastros" method="get">
+                        <form action="/create" method="get">
                             <button class="logout-button" type="submit">Cadastros</button>
                         </form>
                     </li>
                     <li>
-                        <form action="/partidas" method="get">
+                        <form action="/matche" method="get">
                             <button class="logout-button" type="submit">Partidas</button>
                         </form>
                     </li>

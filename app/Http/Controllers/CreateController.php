@@ -19,21 +19,16 @@ use Illuminate\Support\Facades\Hash;
 class CreateController extends Controller
 {
 
-    public function create_user(CreateUserRequest $request)
-    {
-
-        $user = User::where('email', $request->email)->first();
-        if ($user) {
-            return redirect()->route('view_user')
-                ->with('error', 'E-mail já cadastrado: Não foi possivel realizar o cadastro');
-        } else {
-            // Os valores dentro da request já estão validados nesse ponto
-            User::create($request->all());
-            return redirect()->route('view_user')->with('success', 'Usuario cadastrado com sucesso.');
-        }
+    public function view_create()
+    {    
+        $championships  = Championship::all();
+        $teams = Team::all();
+        return view('create')
+                    ->with('teams', $teams)
+                    ->with('championships', $championships);
     }
 
-
+    
     public function create_team(CreateTeamRequest $request)
     {
         $team = Team::where('name', $request->name)->first();
