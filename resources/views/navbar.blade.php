@@ -14,17 +14,30 @@
             <nav>
                 <ul>
                     @auth
-                        <li><a href="/">Inicio</a></li>
-                        <li><a href="/">Cadastros</a></li>
-                        <li><a href="/">Partidas</a></li>
 
-                        <li>
-                            <form action="/logout" method="POST" class="logout-form">
-                                @csrf
-                                <button type="submit">Sair</button>
-                            </form>
-                        </li>
+                    <li>
+                        <form action="/" method="get">
+                            <button class="logout-button" type="submit">Início</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/cadastros" method="get">
+                            <button class="logout-button" type="submit">Cadastros</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="/partidas" method="get">
+                            <button class="logout-button" type="submit">Partidas</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="logout-button">Sair</button>
+                        </form>
+                    </li>
                     @else
+                    <h3>Deslogado</h3>
                     @endauth
                 </ul>
             </nav>

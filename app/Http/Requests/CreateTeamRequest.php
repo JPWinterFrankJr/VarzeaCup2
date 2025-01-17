@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-use App\Models\Usuario;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateUsuarioRequest extends FormRequest
+class CreateTeamRequest extends FormRequest
 {
     /**
      * Determine se o usuário está autorizado a fazer esta solicitação.
@@ -20,9 +19,7 @@ class CreateUsuarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'required',
-            'email'=> 'required',
-            'password'=> 'required'
+            'name'=> 'required'
         ];
     }
 

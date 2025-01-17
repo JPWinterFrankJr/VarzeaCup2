@@ -68,9 +68,27 @@ nav ul li a:hover {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none; 
 }
 
 .logout-form button:hover {
     color: #ddd;
+}
+
+.logout-form {
+    display: inline; /* Garante que o formulário não quebre o layout */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove preenchimentos padrão */
+
+}
+
+.logout-button {
+    text-decoration: none; /* Remove o sublinhado */
+
+    all: unset; /* Reseta os estilos padrão do botão */
+    color: inherit; /* Usa a cor atual do texto do link */
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    padding: 5px 10px; /* Adiciona espaçamento similar aos links */
+    font-size: inherit; /* Mantém o tamanho da fonte */
+   
 }

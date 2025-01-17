@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classificacao extends Model
+class Rating extends Model
 {
     use HasFactory;
 
     // Define o nome da tabela
-    protected $table = 'classificacoes';
+    protected $table = 'Rating';
 
     // Permite atribuição em massa para essas colunas
     protected $fillable = [
         'team_id',           // ID do time
-        'championship_id',   // ID do campeonato
+        'championships_id',   // ID do campeonato
         'points',            // Pontos acumulados
         'games_played',      // Jogos jogados
         'wins',              // Vitórias
@@ -27,14 +27,14 @@ class Classificacao extends Model
     ];
 
     // Relacionamento com o time
-    public function time()
+    public function team()
     {
-        return $this->belongsTo(Time::class, 'team_id');
+        return $this->belongsTo(Team::class, 'team_id');
     }
 
     // Relacionamento com o campeonato
-    public function campeonato()
+    public function championships()
     {
-        return $this->belongsTo(Campeonato::class, 'championship_id');
+        return $this->belongsTo(Championship::class, 'championship_id');
     }
 }

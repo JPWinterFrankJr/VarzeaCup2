@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('campeonatos', function (Blueprint $table) {
+        Schema::create('championships', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->year('year');
@@ -18,6 +18,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('campeonatos');
+        Schema::dropIfExists('championships');
     }
 };

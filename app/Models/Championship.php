@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Campeonato extends Model
+class Championship extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,6 @@ class Campeonato extends Model
     // Relação: Um campeonato tem várias partidas
     public function matches()
     {
-        return $this->hasMany(Campeonato::class);
+        return $this->hasMany(Championship::class);
     }
 }

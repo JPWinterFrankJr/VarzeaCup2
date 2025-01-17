@@ -2,29 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+use App\Models\User;
 
 
 class AuthController extends Controller
 {
-    public function logar(Request $request)
+    public function logar(AuthUserRequest $request)
     {    
-        // Tente autenticar o usuário
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('index')
-            ->with('msg','Usuario logado com sucesso'); 
+            // Redireciona para o dashboard ou outra rota após o login
+            return redirect()->intended('/')->with('msg', 'Usuário logado com sucesso');
         } else {
-
-            return back()->withInput()
-            ->withErrors(['email' => 'Credenciais inválidas']);
+            return back()->withInput()->withErrors(['email' => 'E-mail ou senha incorreta']);
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('index')->with('msg-logout','Usuario desconectado');
+        return redirect('/')->with('msg-logout','Usuario desconectado');
     }
 }

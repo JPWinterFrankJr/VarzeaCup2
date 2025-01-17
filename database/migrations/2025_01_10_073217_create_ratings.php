@@ -8,10 +8,10 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('classificacoes', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campeonato_id')->constrained('campeonatos')->onDelete('cascade');
-            $table->foreignId('team_id')->constrained('times')->onDelete('cascade');
+            $table->foreignId('ratings_id')->constrained('ratings')->onDelete('cascade');
+            $table->foreignId('team_id')->constrained('teams')->onDelete('cascade');
             $table->integer('points')->default(0);
             $table->integer('games_played')->default(0);
             $table->integer('wins')->default(0);
@@ -23,6 +23,6 @@ return new class extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('classificacoes');
+        Schema::dropIfExists('ratings');
     }
 };
